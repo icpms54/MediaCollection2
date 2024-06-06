@@ -1,0 +1,14 @@
+# use php runtime
+FROM php:7.4-apache
+
+# set directory in the container
+WORKDIR /var/www/html
+
+# copy the current directory
+COPY . /var/www/html
+
+# install mysqli extension
+RUN docker-php-ext-install mysqli
+
+# start apache
+CMD ["apache2-foreground"]
